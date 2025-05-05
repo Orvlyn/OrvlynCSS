@@ -4,6 +4,54 @@
  * @author Orvlyn
  */
 
+/* Discord Core Elements */
+.theme-dark,
+.theme-light {
+    --background-primary: var(--background) !important;
+    --background-secondary: var(--background) !important;
+    --background-secondary-alt: var(--background) !important;
+    --background-tertiary: var(--background) !important;
+    --background-accent: var(--highlight) !important;
+    --background-floating: var(--background) !important;
+    --background-mentioned: rgba(var(--rgb-highlight), 0.1) !important;
+    --background-mentioned-hover: rgba(var(--rgb-highlight), 0.08) !important;
+}
+
+/* Server List */
+.guilds-2JjMmN {
+    background-color: var(--background) !important;
+}
+
+/* Channels */
+.sidebar-1tnWFu {
+    background: var(--background) !important;
+}
+
+/* Chat Area */
+.chat-2ZfjoI {
+    background: var(--background) !important;
+}
+
+/* Messages */
+.message-2CShn3 {
+    background: var(--background) !important;
+}
+
+/* Members List */
+.members-3WRCEx {
+    background: var(--background) !important;
+}
+
+/* User Area */
+.panels-3wFtMD {
+    background: var(--background) !important;
+}
+
+/* Search Results */
+.searchResultsWrap-5RVOkx {
+    background: var(--background) !important;
+}
+
 /* Core Variables */
 :root {
     /* Background */
