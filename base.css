@@ -1,0 +1,99 @@
+/**
+ * @name ORVLYN Base CSS
+ * @version 1.0.0
+ * @author Orvlyn
+ */
+
+/* Core Variables */
+:root {
+    /* Background */
+    --background-primary: var(--background);
+    --background-secondary: var(--background);
+    --background-tertiary: var(--background);
+    --background-accent: var(--background);
+    --background-floating: var(--background);
+    --background-mobile-primary: var(--background);
+    --background-mobile-secondary: var(--background);
+    --background-modifier-hover: rgba(var(--rgb-highlight), 0.1);
+    --background-modifier-active: rgba(var(--rgb-highlight), 0.2);
+    --background-modifier-selected: rgba(var(--rgb-highlight), 0.3);
+    --background-modifier-accent: rgba(var(--rgb-highlight), 0.15);
+  
+    /* Colors */
+    --rgb-highlight: 78, 224, 194;
+    --rgb-background: 11, 17, 23;
+    --highlight: rgb(var(--rgb-highlight));
+    --background: rgb(var(--rgb-background));
+  
+    /* Text */
+    --text-normal: #dcddde;
+    --text-muted: #969696;
+    --text-link: var(--main-color);
+    --interactive-normal: #b9bbbe;
+    --interactive-hover: #dcddde;
+    --interactive-active: #fff;
+    --interactive-muted: #4f545c;
+  
+    /* Status Colors */
+    --online-color: #43b581;
+    --idle-color: #faa61a;
+    --dnd-color: #f04747;
+    --streaming-color: #593695;
+    --offline-color: #747f8d;
+  }
+  
+  /* Core App Structure */
+  .appMount-3lHmkl {
+    background: var(--background-overlay);
+  }
+  
+  .app-2rEoOp {
+    background: none;
+  }
+  
+  /* Chat Area */
+  .chat-3bRxxu {
+    background: none;
+  }
+  
+  .content-yTz4x3 {
+    background: none;
+  }
+  
+  /* Channel List */
+  .sidebar-2K8pFh {
+    background: none;
+  }
+  
+  /* Members List */
+  .members-1998pB {
+    background: none;
+  }
+  
+  /* Popouts & Modals */
+  .layer-2KE1M9 {
+    background: var(--background-floating);
+  }
+  
+  /* Scrollbars */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    border-radius: 4px;
+  }
+  
+  /* Status Colors */
+  .status-online { background-color: var(--online-color); }
+  .status-idle { background-color: var(--idle-color); }
+  .status-dnd { background-color: var(--dnd-color); }
+  .status-streaming { background-color: var(--streaming-color); }
+  .status-offline { background-color: var(--offline-color); }
