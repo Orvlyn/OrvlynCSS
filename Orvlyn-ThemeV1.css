@@ -1,0 +1,224 @@
+/* ORVLYN ULTRA LUXURY THEME – INDIGO / MINT EDITION v2.3 */
+/* ------------------------------------------------------ */
+/* Imports */
+@import url("https://raw.githubusercontent.com/Orvlyn/OrvlynCSS/main/base.css");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap");
+
+/* 1. Palette & globals */
+:root{
+  --background-image: url('https://orvlyn.me/wp-content/uploads/2025/05/New-Project.webp');
+  --or-bg-overlay: rgba(10,13,18,0.92);
+  --or-bg-blur: 4px;
+
+  --or-indigo:#4363B1;
+  --or-mint:#4ee0c2;
+  --or-cyan:#24d6ff;
+  --or-navy:#0B0F15;
+  --or-surface:#171c24;
+  --or-text:#f0f4ff;
+
+  --or-chat-text:#a8fff5;
+  --or-menu-overlay: rgba(10,13,18,0.94);
+
+  --or-grad-accent:linear-gradient(135deg,var(--or-indigo) 0%,var(--or-mint) 100%);
+  --or-grad-bg:radial-gradient(circle at 30% 30%,rgba(78,224,194,.05) 0%,transparent 50%),linear-gradient(to bottom,var(--or-navy) 0%,#0e1218 60%,#0e1218 100%);
+
+  --or-shadow-strong:0 0 20px rgba(78,224,194,.40);
+  --or-shadow-med:0 0 14px rgba(78,224,194,.28);
+  --or-shadow-soft:0 0 10px rgba(78,224,194,.18);
+  --or-blur:16px;
+
+  --channels-width:240px;
+  --members-width:260px;
+  --or-selector-width:2px;
+
+  --font-primary:"Montserrat",sans-serif;
+  --font-secondary:"Poppins",sans-serif;
+
+  /* ClearVision mirrors */
+  --main-color:var(--or-indigo);
+  --hover-color:var(--or-cyan);
+  --url-color:var(--or-mint);
+  --channel-unread:var(--or-mint);
+  --channel-color:rgba(223,230,255,.95);
+  --muted-color:rgba(200,200,200,.45);
+  --online-color:#4fb98a;
+  --idle-color:var(--or-mint);
+  --dnd-color:#b36060;
+  --streaming-color:#7d6cd8;
+  --offline-color:#7d7d7d;
+}
+
+/* 2. Backdrop */
+.app-2CXKsg{
+  background:var(--or-grad-bg),var(--or-bg-overlay),var(--background-image);
+  background-blend-mode:overlay;
+  background-attachment:fixed;
+  background-size:cover;
+  background-position:center;
+}
+
+/* 3. Messages */
+.message-2CShn3{
+  background:rgba(23,28,36,.60);
+  border:1px solid rgba(78,224,194,.14);
+  border-radius:12px;
+  backdrop-filter:blur(8px);
+  margin:6px 0;padding:8px 14px;
+  transition:transform .25s,background .25s,border .25s;
+}
+.message-2CShn3:hover{
+  background:rgba(78,224,194,.08);
+  border-color:rgba(78,224,194,.30);
+  transform:translateX(4px) scale(1.015);
+  box-shadow:var(--or-shadow-med);
+}
+/* chat text + subtle indigo shadow */
+.message-2CShn3 .markup-eYLPri,
+.message-2CShn3 .messageContent-2t3eCI{
+  color:var(--or-chat-text)!important;
+  text-shadow:0 0 2px rgba(67,99,177,.35);
+}
+.username-i5-wOV:not([style*="color"]){color:var(--or-chat-text)!important;}
+[class*="timestamp"]{color:rgba(255,255,255,.38)!important;}
+
+/* 4. Channel list + neon selector */
+.containerDefault-YUSmu3{position:relative;border-radius:8px;padding:2px 8px;margin:3px 0;
+  transition:background .25s,transform .25s,padding-left .25s;}
+.containerDefault-YUSmu3:hover{background:rgba(78,224,194,.10);transform:translateX(4px);padding-left:12px;}
+.modeSelected-3DmyhH{background:none!important;box-shadow:var(--or-shadow-med);}
+.modeSelected-3DmyhH::before{
+  content:"";position:absolute;left:0;top:6px;bottom:6px;width:var(--or-selector-width);
+  background:var(--or-grad-accent);border-radius:999px;
+  transition:left .3s cubic-bezier(.4,0,.2,1);
+}
+.modeSelected-3DmyhH .name-23GUGE,
+.modeSelected-3DmyhH .icon-1DeIlz,
+.modeSelected-3DmyhH .content-1gYQeQ{color:var(--or-navy)!important;font-weight:600;}
+
+/* 5. Buttons */
+.button-f2h6uQ{
+  border:none;background:var(--or-grad-accent)!important;
+  backdrop-filter:blur(var(--or-blur));
+  box-shadow:var(--or-shadow-soft);
+  transition:transform .25s,box-shadow .25s;
+}
+.button-f2h6uQ:hover{transform:translateY(-2px) scale(1.03);box-shadow:var(--or-shadow-strong);}
+
+/* 6. Popouts & modals */
+.userPopout-2j1gM4,.modal-yWgWj-{
+  background:var(--or-surface)!important;
+  border:1px solid rgba(78,224,194,.14);
+  backdrop-filter:blur(var(--or-blur));
+  border-radius:16px;
+  box-shadow:0 8px 28px rgba(0,0,0,.45),0 0 24px rgba(78,224,194,.12);
+  animation:pop-smooth .30s ease;
+}
+@keyframes pop-smooth{from{opacity:0;transform:translateY(8px) scale(.96);}to{opacity:1;transform:translateY(0) scale(1);}}
+
+/* 7. Scrollbars – static gradient */
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-thumb{background:var(--or-grad-accent);border-radius:4px;}
+::-webkit-scrollbar-track{background:rgba(255,255,255,.04);}
+
+/* 8. Mentions & badges */
+.numberBadge-37OJ3S{
+  background:var(--or-mint)!important;color:var(--or-navy)!important;
+  box-shadow:0 0 8px rgba(78,224,194,.45);
+  border-radius:999px;font-weight:600;
+}
+
+/* 9. Folder icons */
+.folderIconWrapper-1oRIZr{background:rgba(78,224,194,.08);border-radius:12px;transition:background .25s;}
+.folderIconWrapper-1oRIZr:hover{background:rgba(78,224,194,.18);}
+
+/* 10. Branding (static) */
+.wordmark-2u86JB svg{display:none;}
+.wordmark-2u86JB::after{
+  content:"ORVLYN";font-family:var(--font-primary);font-size:14px;font-weight:700;
+  background:var(--or-grad-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  letter-spacing:2px;padding:0 8px;
+}
+
+/* 11. Version text */
+.info-1VyQPT{display:none!important;}
+.info-1VyQPT::before{
+  content:"ORVLYN ULTRA LUXURY v2.3";
+  font-family:var(--font-primary);font-weight:600;
+  background:var(--or-grad-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+
+/* 12. Context menus */
+.menu-3sdvDG,.menu-2TXYj2,.menu-1QTzsY,.menu-1qSUvG,.subMenu-3btrte,[role="menu"]{
+  background:var(--or-menu-overlay),url('https://orvlyn.me/wp-content/uploads/2025/05/New-Project.webp');
+  background-blend-mode:overlay;background-size:cover;background-position:center;
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(78,224,194,.14);
+  border-radius:10px;
+  box-shadow:0 8px 24px rgba(0,0,0,.50),0 0 18px rgba(78,224,194,.12);
+}
+.colorDefault-2K3EoJ:hover,
+.colorDefault-2K3EoJ.focused-3afm-j{background:rgba(78,224,194,.12)!important;color:var(--or-chat-text)!important;}
+.colorDanger-3n-KnP:hover,
+.colorDanger-3n-KnP.focused-3afm-j{background:rgba(179,96,96,.18)!important;}
+
+/* 13. Low‑power fallback */
+@media (prefers-reduced-transparency: reduce),(prefers-reduced-motion: reduce){
+  .message-2CShn3,.userPopout-2j1gM4,.modal-yWgWj-,.menu-3sdvDG,.menu-2TXYj2,
+  .menu-1QTzsY,.menu-1qSUvG,.subMenu-3btrte{
+    backdrop-filter:none!important;background:rgba(23,28,36,.90)!important;
+  }
+  /* Disable extra animations */
+  .speaking-2bP3Cq,.avatarSpeaking-2pI2I8,[class*="avatarSpeaking"]{animation:none!important;box-shadow:none!important;}
+  [class*="typing"]::after{animation:none!important;opacity:.6;width:12px;}
+}
+
+/* ===================================================== */
+/* EXTRAS                                                */
+/* ===================================================== */
+
+/* 14 ▸ Neon mint halo on speaking avatars */
+@keyframes ringPulse{
+  0%,100%{box-shadow:0 0 0 2px var(--or-mint),0 0 6px rgba(78,224,194,.5);}
+  50%   {box-shadow:0 0 0 2px var(--or-mint),0 0 14px rgba(78,224,194,.9);}
+}
+/* Cover common avatar classes used when speaking */
+.avatarSpeaking-2pI2I8,
+.avatarSpeaking-36V2qS,
+.container-3baos1.speaking-2bP3Cq .avatar-1BDn8e,
+[class*="speaking"] [class*="avatarWrapper"],
+[class*="voiceState"] [class*="avatar"],
+[class*="stream"] [class*="avatar"]{
+  animation:ringPulse 1.2s ease-in-out infinite!important;
+  box-shadow:0 0 0 2px var(--or-mint),0 0 8px rgba(78,224,194,.6)!important;
+  border-radius:50%!important;
+}
+
+/* 15 ▸ Custom typing indicator (mint pulse bar) */
+@keyframes typePulse{
+  0%{width:0;opacity:0;}
+  25%{width:8px;opacity:.6;}
+  50%{width:16px;opacity:1;}
+  75%{width:8px;opacity:.6;}
+  100%{width:0;opacity:0;}
+}
+/* Hide default three dots */
+.typing-2Gql17 .dots-3Iqh8q,
+.typing-2Gql17 svg,
+[class*="typing"] .dots-3Iqh8q,
+[class*="typing"] svg{display:none!important;}
+/* Pulse bar */
+.typing-2Gql17::after,
+[class*="typing"]::after{
+  content:"";
+  display:block;
+  width:0;height:2px;
+  background:var(--or-mint);
+  border-radius:999px;
+  animation:typePulse 1.2s ease-in-out infinite;
+  margin:4px 0 0;
+}
+
+/* ===================================================== */
+/* End of stylesheet                                     */
