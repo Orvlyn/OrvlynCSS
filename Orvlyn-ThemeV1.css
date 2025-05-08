@@ -1,4 +1,4 @@
-/* ORVLYN ULTRA LUXURY THEME – INDIGO / MINT EDITION v2.3 */
+/* ORVLYN ULTRA LUXURY THEME – INDIGO / MINT EDITION v2.4 */
 /* ------------------------------------------------------ */
 /* Imports */
 @import url("https://raw.githubusercontent.com/Orvlyn/OrvlynCSS/main/base.css");
@@ -36,7 +36,6 @@
   --font-primary:"Montserrat",sans-serif;
   --font-secondary:"Poppins",sans-serif;
 
-  /* ClearVision mirrors */
   --main-color:var(--or-indigo);
   --hover-color:var(--or-cyan);
   --url-color:var(--or-mint);
@@ -48,6 +47,8 @@
   --dnd-color:#b36060;
   --streaming-color:#7d6cd8;
   --offline-color:#7d7d7d;
+
+  --list-item-transition: 0.2s ease;
 }
 
 /* 2. Backdrop */
@@ -220,5 +221,131 @@
   margin:4px 0 0;
 }
 
-/* ===================================================== */
-/* End of stylesheet                                     */
+/* Unread channel emoji ping effect */
+.wrapper__2ea32 .link__2ea32 {
+  transition: margin-left var(--list-item-transition);
+}
+.wrapper__2ea32:hover .link__2ea32 {
+  margin-left: 10px;
+}
+.unread__2ea32 {
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  transition: var(--list-item-transition);
+}
+.wrapper__2ea32:hover .unread__2ea32 {
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  margin-left: 3px;
+  background-color: transparent;
+  background: url('https://cdn.discordapp.com/emojis/1026533070955872337.webp?size=48');
+  background-size: 12px;
+  background-position: center;
+}
+
+/* Spotify player blur with track image */
+#vc-spotify-player {
+  --blur-amount: 4px;
+  --normal-bg-colour: var(--or-bg-overlay);
+  position: relative;
+  background: linear-gradient(to bottom, transparent 0%, var(--normal-bg-colour) 100%) !important;
+  overflow: hidden;
+  transition: all 0.4s ease-out;
+}
+#vc-spotify-player:hover {
+  --blur-amount: 0px;
+}
+#vc-spotify-player::before,
+#vc-spotify-player::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transition: all 0.4s ease-out;
+}
+#vc-spotify-player::before {
+  background: var(--vc-spotify-track-image);
+  background-position: center top;
+  background-size: cover;
+  opacity: 0.5;
+}
+#vc-spotify-player:hover::before {
+  opacity: 0.7;
+}
+#vc-spotify-player::after {
+  backdrop-filter: blur(var(--blur-amount));
+}
+#vc-spotify-progress-bar > [class^="slider_"] > [class^="bar_"] > [class^="barFill_"] {
+  background: var(--vc-spotify-track-image);
+  background-size: 1px 100%;
+}
+#vc-spotify-progress-bar > [class^="slider_"] > [class^="bar_"] > [class^="barFill_"]::before {
+  content: "";
+  position: fixed;
+  height: inherit;
+  width: inherit;
+  top: inherit;
+  left: inherit;
+  border-radius: 4px 0 0 4px;
+  backdrop-filter: blur(10px) saturate(4) brightness(1.6);
+}
+
+/* Timestamp preview on hover */
+span[class*="timestampInline_"] time::before {
+  content: attr(aria-label);
+  font-size: 12px;
+}
+span[class*="timestampInline_"] {
+  font-size: 0px !important;
+}
+
+/* Hide member groups + badge containers */
+[class*='membersGroup']:has([role=button]),
+[class*='member'] [class*='container']:has([class*='badges']) {
+  display: none;
+}
+
+/* Remove Quick React bar */
+.button_f7ecac.hoverBarButton_f84418:nth-of-type(1),
+.button_f7ecac.hoverBarButton_f84418:nth-of-type(2),
+.button_f7ecac.hoverBarButton_f84418:nth-of-type(3),
+.separator_f84418 {
+  display: none;
+}
+
+/* Typing dots replaced with “yapping...” */
+.typingDots_b88801 > .ellipsis_b88801+.text_b88801 {
+  font-size: 0;
+  height: 16px;
+}
+.typingDots_b88801 > .ellipsis_b88801+.text_b88801 > strong {
+  font-size: 12px;
+}
+.typingDots_b88801 > .ellipsis_b88801+.text_b88801 > strong::after {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+.typingDots_b88801 > .ellipsis_b88801+.text_b88801 > strong:last-child::after {
+  content: " is yapping...";
+}
+.typingDots_b88801 > .ellipsis_b88801+.text_b88801 > strong:last-child:not(:first-child)::after {
+  content: " are yapping...";
+}
+.typingDots_b88801 > .ellipsis_b88801+.text_b88801 > strong:nth-last-child(2)::after {
+  content: " and ";
+}
+.typingDots_b88801 > .ellipsis_b88801+.text_b88801 > strong:nth-last-child(3)::after {
+  content: ", ";
+}
+.typingDots_b88801 > .ellipsis_b88801+.text_b88801:not(:has(>strong))::after {
+  font-size: 12px;
+  content: "Several people are yapping...";
+}
+
+/* END ENHANCEMENTS */
